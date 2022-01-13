@@ -1,5 +1,4 @@
 import React from "react";
-
 const Hello = (props) => {
   return (
     <div>
@@ -11,14 +10,13 @@ const Hello = (props) => {
 };
 
 const App = () => {
-  const name = "Peter";
-  const age = 10;
+  const name = "Alex";
+  const age = "26";
+
   return (
     <>
-      <h1>Greedings</h1>
-      <Hello name="Maya" age={26 + 10} />
       <Hello name={name} age={age} />
-      <Hello />
+      <Hello name="Alexx" age="27" />
     </>
   );
 };
