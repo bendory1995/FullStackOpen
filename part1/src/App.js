@@ -11,32 +11,26 @@ const Header = (props) => <h1>{props.text}</h1>;
 //   </p>
 // );
 
+const StatisticLine = (props) => {
+  return (
+    <p>
+      {props.text} {props.data}
+    </p>
+  );
+};
 const Statistics = (props) => {
   if (props.allCount === 0) {
     return <p>No feedback given</p>;
   }
   return (
-    <>
-      <p>
-        {props.good}
-        {props.goodCount}
-      </p>
-      <p>
-        {props.neutral} {props.neutralCount}
-      </p>
-      <p>
-        {props.bad} {props.badCount}
-      </p>
-      <p>
-        {props.all} {props.allCount}
-      </p>
-      <p>
-        {props.average} {props.averageCount}
-      </p>
-      <p>
-        {props.positive} {props.positiveCount}
-      </p>
-    </>
+    <div>
+      <StatisticLine text={props.good} data={props.goodCount} />
+      <StatisticLine text={props.neutral} data={props.neutralCount} />
+      <StatisticLine text={props.bad} data={props.badCount} />
+      <StatisticLine text={props.all} data={props.allCount} />
+      <StatisticLine text={props.average} data={props.averageCount} />
+      <StatisticLine text={props.positive} data={props.positiveCount} />
+    </div>
   );
 };
 
