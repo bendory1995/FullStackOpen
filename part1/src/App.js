@@ -12,10 +12,31 @@ const Header = (props) => <h1>{props.text}</h1>;
 // );
 
 const Statistics = (props) => {
+  if (props.allCount === 0) {
+    return <p>No feedback given</p>;
+  }
   return (
-    <p>
-      {props.text} {props.number}
-    </p>
+    <>
+      <p>
+        {props.good}
+        {props.goodCount}
+      </p>
+      <p>
+        {props.neutral} {props.neutralCount}
+      </p>
+      <p>
+        {props.bad} {props.badCount}
+      </p>
+      <p>
+        {props.all} {props.allCount}
+      </p>
+      <p>
+        {props.average} {props.averageCount}
+      </p>
+      <p>
+        {props.positive} {props.positiveCount}
+      </p>
+    </>
   );
 };
 
@@ -33,17 +54,19 @@ const App = () => {
       <Button handleClick={() => setNeutral(neutral + 1)} text="neutral" />
       <Button handleClick={() => setBad(bad + 1)} text="bad" />
       <Header text="statistics" />
-      <Statistics text="good " number={good} />
-      <Statistics text="neutral " number={neutral} />
-      <Statistics text="bad " number={bad} />
-      <Statistics text="average " number={good + neutral + bad} />
       <Statistics
-        text="average "
-        number={(good + bad * -1) / (good + neutral + bad)}
-      />
-      <Statistics
-        text="positive "
-        number={(good / (good + bad + neutral)) * 100 + "%"}
+        good="good "
+        goodCount={good}
+        neutral="neutral "
+        neutralCount={neutral}
+        bad="bad "
+        badCount={bad}
+        all="all "
+        allCount={good + neutral + bad}
+        average="average "
+        averageCount={(good + bad * -1) / (good + neutral + bad)}
+        positive="positive "
+        positiveCount={(good / (good + bad + neutral)) * 100 + "%"}
       />
     </div>
   );
